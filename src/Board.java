@@ -29,8 +29,22 @@ public class Board {
     public Piece atCoordinate (int[] position) {
         return board[position[0]][position[1]];
     }
+    public int[] piecePosition (Piece piece) {
+        int[] position = new int[2];
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
+                if (board[x][y] == piece) {
+                    position[0] = x;
+                    position[1] = y;
+                    x = 9;
+                    y = 9;
+                }
+            }
+        }
+        return position;
+    }
     public String toString() {
-        String output = "  ---------------------------------";
+        String output = "    a   b   c   d   e   f   g   h\n  ---------------------------------";
         for (int i = 7; i > -1; i--) {
             output += "\n" + (i + 1) + " |";
             for (int j = 0; j < 8; j++) {

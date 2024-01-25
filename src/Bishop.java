@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 public class Bishop extends Piece {
     public Bishop(boolean white, Board board) {
         super(white, board);
+        value = 3;
     }
-    public boolean testMove(int[] location) {
-        return true;
+    public ArrayList<int[]> getMoves() {
+        int[] location = getPosition();
+        ArrayList<int[]> moves = new ArrayList<int[]>();
+        return moves;
     }
     public String toString() {
         if (getWhitePiece()) {

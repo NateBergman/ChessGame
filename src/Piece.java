@@ -1,15 +1,17 @@
+import java.util.*;
 public abstract class Piece {
-    protected int[] position;
     protected int value;
-    protected boolean whitePiece;
+    protected boolean white;
+    Board board;
     public Piece (boolean white, Board board) {
-        this.whitePiece = white;
+        this.white = white;
+        this.board = board;
     }
-    public abstract boolean testMove(int[] location);
+    public abstract ArrayList<int[]> getMoves();
     public int[] getPosition() {
-        return position;
+        return board.piecePosition(this);
     }
     public boolean getWhitePiece() {
-        return whitePiece;
+        return white;
     }
 }
