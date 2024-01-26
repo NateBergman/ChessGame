@@ -11,9 +11,9 @@ public class Knight extends Piece {
     }
     public String toString() {
         if (getWhitePiece()) {
-            return "\u2658";
-        } else {
             return "\u265E";
+        } else {
+            return "\u2658";
         }
     }
 }

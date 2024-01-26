@@ -95,9 +95,9 @@ public class Queen extends Piece {
     }
     public String toString() {
         if (getWhitePiece()) {
-            return "\u2655";
-        } else {
             return "\u265B";
+        } else {
+            return "\u2655";
         }
     }
 }

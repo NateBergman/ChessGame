@@ -13,18 +13,31 @@ public class Pawn extends Piece {
         }
         int[] move = new int[] {location[0], y};
         if (board.atCoordinate(move) == null) {
-            moves.add(move);
+            moves.add(new int[] {move[0], move[1]});
+            if (location[1] == 1 && white) {
+                move[1] += 1;
+                if (board.atCoordinate(move) == null) {
+                    moves.add(new int[]{move[0], move[1]});
+                }
+            }
+            if (location[1] == 6 && !white) {
+                move[1] -= 1;
+                if (board.atCoordinate(move) == null) {
+                    moves.add(new int[]{move[0], move[1]});
+                }
+            }
         }
+        move[1] = y;
         if (location[0] != 0) {
             move[0] = location[0] - 1;
             if (board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) {
-                moves.add(move);
+                moves.add(new int[] {move[0], move[1]});
             }
         }
         if (location[0] != 7) {
             move[0] = location[0] + 1;
             if (board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) {
-                moves.add(move);
+                moves.add(new int[] {move[0], move[1]});
             }
         }
         return moves;

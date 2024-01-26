@@ -43,6 +43,10 @@ public class Board {
         }
         return position;
     }
+    public void move (int[] from, int[] to) {
+        board[to[0]][to[1]] = board[from[0]][from[1]];
+        board[from[0]][from[1]] = null;
+    }
     public String toString() {
         String output = "    a   b   c   d   e   f   g   h\n  ---------------------------------";
         for (int i = 7; i > -1; i--) {

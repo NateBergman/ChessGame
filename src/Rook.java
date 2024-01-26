@@ -50,9 +50,9 @@ public class Rook extends Piece {
     }
     public String toString() {
         if (getWhitePiece()) {
-            return "\u2656";
-        } else {
             return "\u265C";
+        } else {
+            return "\u2656";
         }
     }
 }

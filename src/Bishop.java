@@ -55,9 +55,9 @@ public class Bishop extends Piece {
     }
     public String toString() {
         if (getWhitePiece()) {
-            return "\u2657";
-        } else {
             return "\u265D";
+        } else {
+            return "\u2657";
         }
     }
 }

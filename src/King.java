@@ -14,9 +14,9 @@ public class King extends Piece {
     }
     public String toString() {
         if (getWhitePiece()) {
-            return "\u2654";
-        } else {
             return "\u265A";
+        } else {
+            return "\u2654";
         }
     }
 }
