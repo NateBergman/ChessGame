@@ -15,7 +15,7 @@ public class Bishop extends Piece {
             x += 1;
             y += 1;
         }
-        if (x < 8 && y < 8 && board.atCoordinate(new int[] {x,y}) != null && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
+        if (x < 8 && y < 8 && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
             moves.add(new int[] {x,y});
         }
 
@@ -26,7 +26,7 @@ public class Bishop extends Piece {
             x -= 1;
             y -= 1;
         }
-        if (x > -1 && y > -1 && board.atCoordinate(new int[] {x,y}) != null && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
+        if (x > -1 && y > -1 && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
             moves.add(new int[] {x,y});
         }
 
@@ -37,7 +37,7 @@ public class Bishop extends Piece {
             y += 1;
             x -= 1;
         }
-        if (x > -1 && y < 8 && board.atCoordinate(new int[] {x,y}) != null && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
+        if (x > -1 && y < 8 && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
             moves.add(new int[] {x,y});
         }
 
@@ -48,7 +48,7 @@ public class Bishop extends Piece {
             y -= 1;
             x += 1;
         }
-        if (x < 8 && y > -1 && board.atCoordinate(new int[] {x,y}) != null && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
+        if (x < 8 && y > -1 && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
             moves.add(new int[] {x,y});
         }
         return moves;

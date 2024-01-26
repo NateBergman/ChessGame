@@ -41,6 +41,7 @@ public class Pawn extends Piece {
             }
         }
         return moves;
+        //add en passant
     }
     public String toString() {
         if (getWhitePiece()) {
