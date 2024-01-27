@@ -7,10 +7,22 @@ public class King extends Piece {
     public ArrayList<int[]> getMoves() {
         int[] location = getPosition();
         ArrayList<int[]> moves = new ArrayList<int[]>();
+
+        moves.add(new int[] {location[0] + 1, location[1] + 1});
+        moves.add(new int[] {location[0] + 1, location[1]});
+        moves.add(new int[] {location[0] + 1, location[1] - 1});
+        moves.add(new int[] {location[0], location[1] + 1});
+        moves.add(new int[] {location[0], location[1] - 1});
+        moves.add(new int[] {location[0] - 1, location[1] + 1});
+        moves.add(new int[] {location[0] - 1, location[1]});
+        moves.add(new int[] {location[0] - 1, location[1] - 1});
+
+        for (int i = 7; i > -1; i--) {
+            if (moves.get(i)[0] > 7 || moves.get(i)[0] < 0 || moves.get(i)[1] > 7 || moves.get(i)[1] < 0 || (board.atCoordinate(moves.get(i)) != null && board.atCoordinate(moves.get(i)).getWhitePiece() == white)) {
+                moves.remove(i);
+            }
+        }
         return moves;
-    }
-    public boolean inCheck() {
-        return false;
     }
     public String toString() {
         if (getWhitePiece()) {

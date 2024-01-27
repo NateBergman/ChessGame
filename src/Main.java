@@ -35,7 +35,8 @@ public class Main {
                     }
                 }
             } while (repeat);
-            board.move(from, to);
+            System.out.println(board.causesCheck(from,to,whiteMove));
+            board.move(from, to, false);
             whiteMove = !whiteMove;
         }
     }
