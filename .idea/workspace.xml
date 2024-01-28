@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="got possible moves for pawns, rooks, bishops, and queens">
+    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="All pieces move (king needs to be tested, everything else has been tested)&#10;&#10;Promotion works!&#10;&#10;Rudimentary method for determing if your move inflicts self-check. Tested only for knights. needs to be implemented in move tree.&#10;&#10;need to add castling, en passant, and win/draw conditions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706213321244</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="All pieces move (king needs to be tested, everything else has been tested)&#10;&#10;Promotion works!&#10;&#10;Rudimentary method for determing if your move inflicts self-check. Tested only for knights. needs to be implemented in move tree.&#10;&#10;need to add castling, en passant, and win/draw conditions">
+      <created>1706333250904</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706333250904</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +123,7 @@
     <MESSAGE value="yay" />
     <MESSAGE value="now the board is set up!" />
     <MESSAGE value="got possible moves for pawns, rooks, bishops, and queens" />
-    <option name="LAST_COMMIT_MESSAGE" value="got possible moves for pawns, rooks, bishops, and queens" />
+    <MESSAGE value="All pieces move (king needs to be tested, everything else has been tested)&#10;&#10;Promotion works!&#10;&#10;Rudimentary method for determing if your move inflicts self-check. Tested only for knights. needs to be implemented in move tree.&#10;&#10;need to add castling, en passant, and win/draw conditions" />
+    <option name="LAST_COMMIT_MESSAGE" value="All pieces move (king needs to be tested, everything else has been tested)&#10;&#10;Promotion works!&#10;&#10;Rudimentary method for determing if your move inflicts self-check. Tested only for knights. needs to be implemented in move tree.&#10;&#10;need to add castling, en passant, and win/draw conditions" />
   </component>
 </project>

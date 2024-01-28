@@ -43,11 +43,17 @@ public class Board {
     public Piece atCoordinate (int[] position) {
         return board[position[0]][position[1]];
     }
-    public int[] piecePosition (Piece piece) {
+    public int[] piecePosition (Piece piece, boolean test) {
+        Piece[][] functionalBoard;
+        if (test) {
+            functionalBoard = testBoard;
+        } else {
+            functionalBoard = board;
+        }
         int[] position = new int[2];
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
-                if (board[x][y] == piece) {
+                if (functionalBoard[x][y] == piece) {
                     position[0] = x;
                     position[1] = y;
                     x = 9;
@@ -67,7 +73,7 @@ public class Board {
         } else {
             k = blackKing;
         }
-        int [] location = piecePosition(k);
+        int [] location = piecePosition(k, true);
 
         //check for knights
         int[][] testLocations = new int[][] {{location[0] + 1, location[1] + 2},{location[0] + 2, location[1] + 1},{location[0] + 2, location[1] - 1},{location[0] + 1, location[1] - 2},
@@ -82,7 +88,7 @@ public class Board {
         //check straight lines
         int x = location[0] + 1;
         int y = location[1];
-        while (testBoard[x][y] == null && x < 8) {
+        while (x < 8 && testBoard[x][y] == null) {
             x++;
         }
         if (x < 8 && testBoard[x][y].getWhitePiece() != whiteMove && (testBoard[x][y].getClass() == Rook.class || testBoard[x][y].getClass() == Queen.class)) {
@@ -90,7 +96,7 @@ public class Board {
         }
 
         x = location[0] - 1;
-        while (testBoard[x][y] == null && x > -1) {
+        while (x > -1 && testBoard[x][y] == null) {
             x--;
         }
         if (x > -1 && testBoard[x][y].getWhitePiece() != whiteMove && (testBoard[x][y].getClass() == Rook.class || testBoard[x][y].getClass() == Queen.class)) {
@@ -99,7 +105,7 @@ public class Board {
 
         x = location[0];
         y = location[1] + 1;
-        while (testBoard[x][y] == null && y < 8) {
+        while (y < 8 && testBoard[x][y] == null) {
             y++;
         }
         if (y < 8 && testBoard[x][y].getWhitePiece() != whiteMove && (testBoard[x][y].getClass() == Rook.class || testBoard[x][y].getClass() == Queen.class)) {
@@ -107,7 +113,7 @@ public class Board {
         }
 
         y = location[1] - 1;
-        while (testBoard[x][y] == null && y > -1) {
+        while (y > -1 && testBoard[x][y] == null) {
             y--;
         }
         if (y > -1 && testBoard[x][y].getWhitePiece() != whiteMove && (testBoard[x][y].getClass() == Rook.class || testBoard[x][y].getClass() == Queen.class)) {
@@ -116,17 +122,21 @@ public class Board {
 
         //check pawns
         if (whiteMove) {
-            if (testBoard[location[0]-1][location[1]+1] != null && testBoard[location[0]-1][location[1]+1].getWhitePiece() == false && testBoard[location[0]-1][location[1]+1].getClass() == Pawn.class) {
+            if (location[0]-1 < 8 && location[0]-1 > -1 && location[1]+1 < 8 && location[1]+1 > -1 &&
+                    testBoard[location[0]-1][location[1]+1] != null && testBoard[location[0]-1][location[1]+1].getWhitePiece() == false && testBoard[location[0]-1][location[1]+1].getClass() == Pawn.class) {
                 return true;
             }
-            if (testBoard[location[0]+1][location[1]+1] != null && testBoard[location[0]+1][location[1]+1].getWhitePiece() == false && testBoard[location[0]+1][location[1]+1].getClass() == Pawn.class) {
+            if (location[0]+1 < 8 && location[0]+1 > -1 && location[1]+1 < 8 && location[1]+1 > -1 &&
+                    testBoard[location[0]+1][location[1]+1] != null && testBoard[location[0]+1][location[1]+1].getWhitePiece() == false && testBoard[location[0]+1][location[1]+1].getClass() == Pawn.class) {
                 return true;
             }
         } else {
-            if (testBoard[location[0]-1][location[1]-1] != null && testBoard[location[0]-1][location[1]-1].getWhitePiece() == true && testBoard[location[0]-1][location[1]-1].getClass() == Pawn.class) {
+            if (location[0]-1 < 8 && location[0]-1 > -1 && location[1]-1 < 8 && location[1]-1 > -1 &&
+                    testBoard[location[0]-1][location[1]-1] != null && testBoard[location[0]-1][location[1]-1].getWhitePiece() == true && testBoard[location[0]-1][location[1]-1].getClass() == Pawn.class) {
                 return true;
             }
-            if (testBoard[location[0]+1][location[1]-1] != null && testBoard[location[0]+1][location[1]-1].getWhitePiece() == true && testBoard[location[0]+1][location[1]-1].getClass() == Pawn.class) {
+            if (location[0]+1 < 8 && location[0]+1 > -1 && location[1]-1 < 8 && location[1]-1 > -1 &&
+                    testBoard[location[0]+1][location[1]-1] != null && testBoard[location[0]+1][location[1]-1].getWhitePiece() == true && testBoard[location[0]+1][location[1]-1].getClass() == Pawn.class) {
                 return true;
             }
         }
@@ -134,7 +144,7 @@ public class Board {
         //check diagonals
         x = location[0] + 1;
         y = location[1] + 1;
-        while (testBoard[x][y] == null && x < 8 && y < 8) {
+        while (x < 8 && y < 8 && testBoard[x][y] == null) {
             x++;
             y++;
         }
@@ -144,7 +154,7 @@ public class Board {
 
         x = location[0] - 1;
         y = location[1] - 1;
-        while (testBoard[x][y] == null && x > -1 && y > -1) {
+        while (x > -1 && y > -1 && testBoard[x][y] == null) {
             x--;
             y--;
         }
@@ -154,7 +164,7 @@ public class Board {
 
         x = location[0] + 1;
         y = location[1] - 1;
-        while (testBoard[x][y] == null && x < 8 && y > -1) {
+        while (x < 8 && y > -1 && testBoard[x][y] == null) {
             x++;
             y--;
         }
@@ -164,7 +174,7 @@ public class Board {
 
         x = location[0] - 1;
         y = location[1] + 1;
-        while (testBoard[x][y] == null && x > -1 && y < 8) {
+        while (x > -1 && y < 8 && testBoard[x][y] == null) {
             x--;
             y++;
         }

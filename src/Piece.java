@@ -9,7 +9,7 @@ public abstract class Piece {
     }
     public abstract ArrayList<int[]> getMoves();
     public int[] getPosition() {
-        return board.piecePosition(this);
+        return board.piecePosition(this, false);
     }
     public boolean getWhitePiece() {
         return white;
