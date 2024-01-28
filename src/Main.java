@@ -10,6 +10,27 @@ public class Main {
 
         while (true) {
             System.out.println(board + "\n");
+
+            boolean stuck = true;
+            ArrayList<Piece> pieces = board.getAllPiecesOfColor(whiteMove);
+            for (Piece p : pieces) {
+                if (p.getMoves().size() > 0) {
+                    stuck = false;
+                }
+            }
+            if (stuck) {
+                if (board.causesCheck(false, pieces.get(0).getPosition(), pieces.get(0).getPosition(), whiteMove)) {
+                    if (whiteMove) {
+                        System.out.print("Black wins by checkmate!");
+                    } else {
+                        System.out.print("White wins by checkmate!");
+                    }
+                } else {
+                    System.out.print("Draw by stalemate!");
+                }
+                break;
+            }
+
             if (whiteMove) {
                 System.out.println("White's move");
             } else {
@@ -35,7 +56,6 @@ public class Main {
                     }
                 }
             } while (repeat);
-            System.out.println(board.causesCheck(from,to,whiteMove));
             board.move(from, to, false);
             whiteMove = !whiteMove;
         }

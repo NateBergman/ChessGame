@@ -40,13 +40,6 @@ public class Board {
             }
         }
     }
-    public Piece atCoordinate (int[] position, boolean test) {
-        if (test) {
-            return testBoard[position[0]][position[1]];
-        } else {
-            return board[position[0]][position[1]];
-        }
-    }
     public Piece atCoordinate (int[] position) {
         return board[position[0]][position[1]];
     }
@@ -70,9 +63,11 @@ public class Board {
         }
         return position;
     }
-    public boolean causesCheck (int[] from, int[] to, boolean whiteMove) {
+    public boolean causesCheck (boolean moving, int[] from, int[] to, boolean whiteMove) {
         alignTestBoard();
-        move(from, to, true);
+        if (moving) {
+            move(from, to, true);
+        }
 
         King k;
         if (whiteMove) {
@@ -201,20 +196,31 @@ public class Board {
         movingBoard[to[0]][to[1]] = movingBoard[from[0]][from[1]];
         movingBoard[from[0]][from[1]] = null;
         //promote
-        if ((to[1] == 7 || to[1] == 0) && atCoordinate(to,test).getClass() == Pawn.class) {
+        if ((to[1] == 7 || to[1] == 0) && testBoard[to[0]][to[1]].getClass() == Pawn.class) {
             System.out.print("What should the pawn promote to? Q for queen, N for knight, R for rook, B for bishop : ");
             Scanner console = new Scanner(System.in);
             char c = console.next().charAt(0);
             if (c == 'N') {
-                movingBoard[to[0]][to[1]] = new Knight(atCoordinate(to,test).getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Knight(testBoard[to[0]][to[1]].getWhitePiece(), this);
             } else if (c == 'R') {
-                movingBoard[to[0]][to[1]] = new Rook(atCoordinate(to,test).getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Rook(testBoard[to[0]][to[1]].getWhitePiece(), this);
             } else if (c == 'B') {
-                movingBoard[to[0]][to[1]] = new Bishop(atCoordinate(to,test).getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Bishop(testBoard[to[0]][to[1]].getWhitePiece(), this);
             } else {
-                movingBoard[to[0]][to[1]] = new Queen(atCoordinate(to,test).getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Queen(testBoard[to[0]][to[1]].getWhitePiece(), this);
             }
         }
+    }
+    public ArrayList<Piece> getAllPiecesOfColor (boolean white) {
+        ArrayList<Piece> pieces = new ArrayList<Piece>();
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
+                if (board[x][y] != null && board[x][y].getWhitePiece() == white) {
+                    pieces.add(board[x][y]);
+                }
+            }
+        }
+        return pieces;
     }
     public String toString() {
         String output = "    a   b   c   d   e   f   g   h\n  ---------------------------------";

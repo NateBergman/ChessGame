@@ -14,7 +14,7 @@ public abstract class Piece {
     protected ArrayList<int[]> eliminateSelfChecks (ArrayList<int[]> suggestedMoves) {
         ArrayList<int[]> legalMoves = new ArrayList<int[]>();
         for (int[] x : suggestedMoves) {
-            if (!board.causesCheck(getPosition(),x,white)) {
+            if (!board.causesCheck(true, getPosition(),x,white)) {
                 legalMoves.add(x);
             }
         }
