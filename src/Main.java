@@ -56,11 +56,21 @@ public class Main {
                     }
                 }
             } while (repeat);
-            if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 2) {
+
+            if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 2) {//moves rook along with king when castling
                 board.move(new int[] {0,from[1]}, new int[] {3,from[1]}, false);
             } else if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 6) {
                 board.move(new int[] {7,from[1]}, new int[] {5,from[1]}, false);
             }
+
+            if (board.atCoordinate(from).getClass() == Pawn.class && ((from[1] == 1 && to[1] == 3) || (from[1] == 6 && to[1] == 4))) { //if a pawn moves 2
+                board.atCoordinate(from).setEnPassantAble(); //it can be en passanted next turn
+            }
+
+            if (board.atCoordinate(from).getClass() == Pawn.class && from[0] != to[0] && board.atCoordinate(to) == null) { //if en passanting
+                board.move(new int[] {to[0],from[1]}, to, false); //capture the pawn by moving it into the path
+            }
+
             board.move(from, to, false);
             board.atCoordinate(to).updateHasMoved();
             whiteMove = !whiteMove;

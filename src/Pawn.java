@@ -30,18 +30,19 @@ public class Pawn extends Piece {
         move[1] = y;
         if (location[0] != 0) {
             move[0] = location[0] - 1;
-            if (board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) {
+            if ((board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) || (board.atCoordinate(new int[] {location[0]-1,location[1]}) != null
+                    && board.atCoordinate(new int[] {location[0]-1,location[1]}).getWhitePiece() != white && board.atCoordinate(new int[] {location[0]-1,location[1]}).isEnPassantAble())) {
                 moves.add(new int[] {move[0], move[1]});
             }
         }
         if (location[0] != 7) {
             move[0] = location[0] + 1;
-            if (board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) {
+            if ((board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) || (board.atCoordinate(new int[] {location[0]+1,location[1]}) != null
+                    && board.atCoordinate(new int[] {location[0]+1,location[1]}).getWhitePiece() != white && board.atCoordinate(new int[] {location[0]+1,location[1]}).isEnPassantAble())) {
                 moves.add(new int[] {move[0], move[1]});
             }
         }
         return eliminateSelfChecks(moves);
-        //add en passant
     }
     public String toString() {
         if (getWhitePiece()) {
