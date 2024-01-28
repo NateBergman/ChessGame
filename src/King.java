@@ -22,6 +22,28 @@ public class King extends Piece {
                 moves.remove(i);
             }
         }
+
+        if (isHasMoved() == false && !board.inCheck(white, true)) { //castling
+            int i = 7;
+            if (white) {
+                i = 0;
+            }
+            if (board.atCoordinate(new int[] {7,i}) != null && !board.atCoordinate(new int[] {7,i}).isHasMoved()) {
+                if (board.atCoordinate(new int[] {6,i}) == null && board.atCoordinate(new int[] {5,i}) == null) {
+                    if (!board.causesCheck(location,new int[] {5,i}, white)){
+                        moves.add(new int[] {6,i});
+                    }
+                }
+            }
+            if (board.atCoordinate(new int[] {0,i}) != null && !board.atCoordinate(new int[] {0,i}).isHasMoved()) {
+                if (board.atCoordinate(new int[] {1,i}) == null && board.atCoordinate(new int[] {2,i}) == null && board.atCoordinate(new int[] {3,i}) == null) {
+                    if (!board.causesCheck(location,new int[] {3,i}, white)){
+                        moves.add(new int[] {2,i});
+                    }
+                }
+            }
+        }
+
         return eliminateSelfChecks(moves);
     }
     public String toString() {

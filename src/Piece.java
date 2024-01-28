@@ -2,10 +2,12 @@ import java.util.*;
 public abstract class Piece {
     protected int value;
     protected boolean white;
+    private boolean hasMoved;
     Board board;
     public Piece (boolean white, Board board) {
         this.white = white;
         this.board = board;
+        hasMoved = false;
     }
     public abstract ArrayList<int[]> getMoves();
     public int[] getPosition() {
@@ -14,7 +16,7 @@ public abstract class Piece {
     protected ArrayList<int[]> eliminateSelfChecks (ArrayList<int[]> suggestedMoves) {
         ArrayList<int[]> legalMoves = new ArrayList<int[]>();
         for (int[] x : suggestedMoves) {
-            if (!board.causesCheck(true, getPosition(),x,white)) {
+            if (!board.causesCheck(getPosition(),x,white)) {
                 legalMoves.add(x);
             }
         }
@@ -22,5 +24,11 @@ public abstract class Piece {
     }
     public boolean getWhitePiece() {
         return white;
+    }
+    public void updateHasMoved() {
+        hasMoved = true;
+    }
+    public boolean isHasMoved() {
+        return hasMoved;
     }
 }

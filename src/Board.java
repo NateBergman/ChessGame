@@ -63,10 +63,14 @@ public class Board {
         }
         return position;
     }
-    public boolean causesCheck (boolean moving, int[] from, int[] to, boolean whiteMove) {
+    public boolean causesCheck(int[] from, int[] to, boolean whiteMove) {
         alignTestBoard();
-        if (moving) {
-            move(from, to, true);
+        move(from, to, true);
+        return inCheck(whiteMove,false);
+    }
+    public boolean inCheck (boolean whiteMove, boolean resetTest) {
+        if (resetTest) {
+            alignTestBoard();
         }
 
         King k;
@@ -196,18 +200,18 @@ public class Board {
         movingBoard[to[0]][to[1]] = movingBoard[from[0]][from[1]];
         movingBoard[from[0]][from[1]] = null;
         //promote
-        if ((to[1] == 7 || to[1] == 0) && testBoard[to[0]][to[1]].getClass() == Pawn.class) {
+        if ((to[1] == 7 || to[1] == 0) && movingBoard[to[0]][to[1]].getClass() == Pawn.class) {
             System.out.print("What should the pawn promote to? Q for queen, N for knight, R for rook, B for bishop : ");
             Scanner console = new Scanner(System.in);
             char c = console.next().charAt(0);
             if (c == 'N') {
-                movingBoard[to[0]][to[1]] = new Knight(testBoard[to[0]][to[1]].getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Knight(movingBoard[to[0]][to[1]].getWhitePiece(), this);
             } else if (c == 'R') {
-                movingBoard[to[0]][to[1]] = new Rook(testBoard[to[0]][to[1]].getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Rook(movingBoard[to[0]][to[1]].getWhitePiece(), this);
             } else if (c == 'B') {
-                movingBoard[to[0]][to[1]] = new Bishop(testBoard[to[0]][to[1]].getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Bishop(movingBoard[to[0]][to[1]].getWhitePiece(), this);
             } else {
-                movingBoard[to[0]][to[1]] = new Queen(testBoard[to[0]][to[1]].getWhitePiece(), this);
+                movingBoard[to[0]][to[1]] = new Queen(movingBoard[to[0]][to[1]].getWhitePiece(), this);
             }
         }
     }

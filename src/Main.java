@@ -19,7 +19,7 @@ public class Main {
                 }
             }
             if (stuck) {
-                if (board.causesCheck(false, pieces.get(0).getPosition(), pieces.get(0).getPosition(), whiteMove)) {
+                if (board.inCheck(whiteMove, true)) {
                     if (whiteMove) {
                         System.out.print("Black wins by checkmate!");
                     } else {
@@ -56,7 +56,13 @@ public class Main {
                     }
                 }
             } while (repeat);
+            if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 2) {
+                board.move(new int[] {0,from[1]}, new int[] {3,from[1]}, false);
+            } else if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 6) {
+                board.move(new int[] {7,from[1]}, new int[] {5,from[1]}, false);
+            }
             board.move(from, to, false);
+            board.atCoordinate(to).updateHasMoved();
             whiteMove = !whiteMove;
         }
     }
