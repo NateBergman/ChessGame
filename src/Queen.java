@@ -84,7 +84,7 @@ public class Queen extends Piece {
             moves.add(new int[] {x,y});
         }
 
-        return moves;
+        return eliminateSelfChecks(moves);
     }
     public String toString() {
         if (getWhitePiece()) {

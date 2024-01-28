@@ -40,7 +40,7 @@ public class Pawn extends Piece {
                 moves.add(new int[] {move[0], move[1]});
             }
         }
-        return moves;
+        return eliminateSelfChecks(moves);
         //add en passant
     }
     public String toString() {

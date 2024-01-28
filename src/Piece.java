@@ -11,6 +11,15 @@ public abstract class Piece {
     public int[] getPosition() {
         return board.piecePosition(this, false);
     }
+    protected ArrayList<int[]> eliminateSelfChecks (ArrayList<int[]> suggestedMoves) {
+        ArrayList<int[]> legalMoves = new ArrayList<int[]>();
+        for (int[] x : suggestedMoves) {
+            if (!board.causesCheck(getPosition(),x,white)) {
+                legalMoves.add(x);
+            }
+        }
+        return legalMoves;
+    }
     public boolean getWhitePiece() {
         return white;
     }

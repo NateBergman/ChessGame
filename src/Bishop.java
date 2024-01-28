@@ -51,7 +51,7 @@ public class Bishop extends Piece {
         if (x < 8 && y > -1 && board.atCoordinate(new int[] {x,y}).getWhitePiece() != white) {
             moves.add(new int[] {x,y});
         }
-        return moves;
+        return eliminateSelfChecks(moves);
     }
     public String toString() {
         if (getWhitePiece()) {

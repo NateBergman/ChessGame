@@ -22,7 +22,7 @@ public class King extends Piece {
                 moves.remove(i);
             }
         }
-        return moves;
+        return eliminateSelfChecks(moves);
     }
     public String toString() {
         if (getWhitePiece()) {

@@ -23,7 +23,7 @@ public class Knight extends Piece {
             }
         }
 
-        return moves;
+        return eliminateSelfChecks(moves);
     }
     public String toString() {
         if (getWhitePiece()) {

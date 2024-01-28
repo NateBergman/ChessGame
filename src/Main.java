@@ -21,23 +21,13 @@ public class Main {
             do {
                 do {
                     System.out.print("Enter coordinates of the piece you would like to move\nX : ");
-                    /*while (!console.hasNext()) {
-                        System.out.print("X : ");
-                    }*/
                     from[0] = ((int)console.next().charAt(0)) - 'a';
-                    //while (!console.hasNextInt()) {
-                        System.out.print("Y : ");
-                    //}
+                    System.out.print("Y : ");
                     from[1] = console.nextInt() - 1;
                 } while (!(from[0] > -1 && from[0] < 8 && from[1] > -1 && from[1] < 8 && board.atCoordinate(from) != null && board.atCoordinate(from).getWhitePiece() == whiteMove));
                 System.out.print("Enter coordinates of where you would like to move it to\nX : ");
-                //while (!console.hasNext()) {
-                //    System.out.print("X : ");
-                //}
                 to[0] = ((int)console.next().charAt(0)) - 'a';
-                //while (!console.hasNextInt()) {
-                    System.out.print("Y : ");
-                //}
+                System.out.print("Y : ");
                 to[1] = console.nextInt() - 1;
                 for (int[] m : board.atCoordinate(from).getMoves()) {
                     if (Arrays.equals(m,to)) {
