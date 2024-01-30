@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="Game works - not the cleanest, but with en passant it runs like a chess game should.">
+    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="Added completely random bot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706471768471</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added completely random bot">
+      <created>1706648475521</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706648475521</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +170,7 @@
     <MESSAGE value="Got wins/draws sorted out with checkmate and stalemate" />
     <MESSAGE value="Castling works!" />
     <MESSAGE value="Game works - not the cleanest, but with en passant it runs like a chess game should." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game works - not the cleanest, but with en passant it runs like a chess game should." />
+    <MESSAGE value="Added completely random bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added completely random bot" />
   </component>
 </project>

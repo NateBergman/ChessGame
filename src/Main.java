@@ -15,6 +15,7 @@ public class Main {
         while (true) {
             System.out.println(board + "\n");
             boolean stuck = true;
+            //ArrayList<int[][]> moves =
             ArrayList<Piece> pieces = board.getAllPiecesOfColor(whiteMove);
             for (Piece p : pieces) {
                 if (p.getMoves().size() > 0) {
@@ -65,6 +66,7 @@ public class Main {
                         }
                     }
                 } while (repeat);
+                //while ()
             }
 
             if (board.atCoordinate(from).getClass() == King.class && from[0] == 4 && to[0] == 2) {//moves rook along with king when castling

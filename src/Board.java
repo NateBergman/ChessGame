@@ -226,6 +226,19 @@ public class Board {
         }
         return pieces;
     }
+    //make it so each board just makes a new board
+    public ArrayList<int[][]> getLegalMoves (boolean white) {
+        ArrayList<Piece> pieces = getAllPiecesOfColor(white);
+        ArrayList<int[][]> moves = new ArrayList<int[][]>();
+        for (Piece p : pieces) {
+            ArrayList<int[]> pieceMoves = p.getMoves();
+            int[] location = p.getPosition();
+            for (int[] m : pieceMoves) {
+                moves.add(new int[][] {location,m});
+            }
+        }
+        return moves;
+    }
     public String toString() {
         String output = "    a   b   c   d   e   f   g   h\n  ---------------------------------";
         for (int i = 7; i > -1; i--) {
