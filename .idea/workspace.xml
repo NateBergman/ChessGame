@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="Castling works!">
+    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="Game works - not the cleanest, but with en passant it runs like a chess game should.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706470361028</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Game works - not the cleanest, but with en passant it runs like a chess game should.">
+      <created>1706471768471</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706471768471</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +162,7 @@
     <MESSAGE value="fixed problem with at position not being able to also get test board, which was problematic when looking for promotions/checks" />
     <MESSAGE value="Got wins/draws sorted out with checkmate and stalemate" />
     <MESSAGE value="Castling works!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Castling works!" />
+    <MESSAGE value="Game works - not the cleanest, but with en passant it runs like a chess game should." />
+    <option name="LAST_COMMIT_MESSAGE" value="Game works - not the cleanest, but with en passant it runs like a chess game should." />
   </component>
 </project>
