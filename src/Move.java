@@ -2,14 +2,21 @@ public class Move {
     int[] to;
     int[] from;
     Piece captured;
-    Move(int[] to, int[] from) {
+    boolean promotion;
+    boolean enPassant;
+    boolean castle;
+    Move(int[] to, int[] from, Board board) {
         this.to = to;
         this.from = from;
-        captured = null;
+        captured = board.atCoordinate(to);
     }
-    Move(int[] to, int[] from, Piece captured) {
-        this.to = to;
-        this.from = from;
-        this.captured = captured;
+    public int[] getTo() {
+        return to;
+    }
+    public int[] getFrom() {
+        return from;
+    }
+    public Piece getCaptured() {
+        return captured;
     }
 }

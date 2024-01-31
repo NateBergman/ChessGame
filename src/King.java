@@ -23,7 +23,7 @@ public class King extends Piece {
             }
         }
 
-        if (isHasMoved() == false && !board.inCheck(white, true)) { //castling
+        if (!isHasMoved() && !board.inCheck(white, true)) { //castling
             int i = 7;
             if (white) {
                 i = 0;

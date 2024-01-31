@@ -215,6 +215,17 @@ public class Board {
             }
         }
     }
+    public void move (Move m) {
+        int[] to = m.getTo();
+        int[] from = m.getFrom();
+        board[to[0]][to[1]] = board[from[0]][from[1]];
+    }
+    public void undoMove (Move m) {
+
+    }
+    public void promote (int[] square) {
+
+    }
     public ArrayList<Piece> getAllPiecesOfColor (boolean white) {
         ArrayList<Piece> pieces = new ArrayList<Piece>();
         for (int x = 0; x < 8; x++) {
@@ -227,14 +238,13 @@ public class Board {
         return pieces;
     }
     //make it so each board just makes a new board
-    public ArrayList<int[][]> getLegalMoves (boolean white) {
+    public ArrayList<Move> getLegalMoves (boolean white) {
         ArrayList<Piece> pieces = getAllPiecesOfColor(white);
-        ArrayList<int[][]> moves = new ArrayList<int[][]>();
+        ArrayList<Move> moves = new ArrayList<Move>();
         for (Piece p : pieces) {
-            ArrayList<int[]> pieceMoves = p.getMoves();
-            int[] location = p.getPosition();
-            for (int[] m : pieceMoves) {
-                moves.add(new int[][] {location,m});
+            ArrayList<Move> pieceMoves = p.getMoves();
+            for (Move m : pieceMoves) {
+                moves.add(m);
             }
         }
         return moves;

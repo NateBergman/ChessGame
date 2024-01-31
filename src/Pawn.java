@@ -4,26 +4,26 @@ public class Pawn extends Piece {
         super(white, board);
         value = 1;
     }
-    public ArrayList<int[]> getMoves() {
+    public ArrayList<Move> getMoves() {
         int[] location = getPosition();
-        ArrayList<int[]> moves = new ArrayList<int[]>();
+        ArrayList<Move> moves = new ArrayList<Move>();
         int y = location[1] - 1;
         if (white) {
             y = location[1] + 1;
         }
         int[] move = new int[] {location[0], y};
         if (board.atCoordinate(move) == null) {
-            moves.add(new int[] {move[0], move[1]});
+            moves.add(new Move(location,new int[] {move[0], move[1]},board));
             if (location[1] == 1 && white) {
                 move[1] += 1;
                 if (board.atCoordinate(move) == null) {
-                    moves.add(new int[]{move[0], move[1]});
+                    moves.add(new Move(location,new int[] {move[0], move[1]},board));
                 }
             }
             if (location[1] == 6 && !white) {
                 move[1] -= 1;
                 if (board.atCoordinate(move) == null) {
-                    moves.add(new int[]{move[0], move[1]});
+                    moves.add(new Move(location,new int[] {move[0], move[1]},board));
                 }
             }
         }
@@ -32,14 +32,14 @@ public class Pawn extends Piece {
             move[0] = location[0] - 1;
             if ((board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) || (board.atCoordinate(new int[] {location[0]-1,location[1]}) != null
                     && board.atCoordinate(new int[] {location[0]-1,location[1]}).getWhitePiece() != white && board.atCoordinate(new int[] {location[0]-1,location[1]}).isEnPassantAble())) {
-                moves.add(new int[] {move[0], move[1]});
+                moves.add(new Move(location,new int[] {move[0], move[1]},board));
             }
         }
         if (location[0] != 7) {
             move[0] = location[0] + 1;
             if ((board.atCoordinate(move) != null && board.atCoordinate(move).getWhitePiece() != white) || (board.atCoordinate(new int[] {location[0]+1,location[1]}) != null
                     && board.atCoordinate(new int[] {location[0]+1,location[1]}).getWhitePiece() != white && board.atCoordinate(new int[] {location[0]+1,location[1]}).isEnPassantAble())) {
-                moves.add(new int[] {move[0], move[1]});
+                moves.add(new Move(location,new int[] {move[0], move[1]},board));
             }
         }
         return eliminateSelfChecks(moves);

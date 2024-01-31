@@ -11,16 +11,16 @@ public abstract class Piece {
         hasMoved = false;
         enPassantAble = false;
     }
-    public abstract ArrayList<int[]> getMoves();
+    public abstract ArrayList<Move> getMoves();
     public int[] getPosition() {
         return board.piecePosition(this, false);
     }
-    protected ArrayList<int[]> eliminateSelfChecks (ArrayList<int[]> suggestedMoves) {
+    protected ArrayList<Move> eliminateSelfChecks (ArrayList<Move> suggestedMoves) {
         enPassantAble = false;
-        ArrayList<int[]> legalMoves = new ArrayList<int[]>();
-        for (int[] x : suggestedMoves) {
-            if (!board.causesCheck(getPosition(),x,white)) {
-                legalMoves.add(x);
+        ArrayList<Move> legalMoves = new ArrayList<Move>();
+        for (Move m : suggestedMoves) {
+            if (!board.causesCheck(m,white)) {
+                legalMoves.add(m);
             }
         }
         return legalMoves;

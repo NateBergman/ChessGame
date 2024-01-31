@@ -1,6 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.*;
-public class Main {
+public class Main { //Chess by Nate Bergman
     public static void main(String[] args) {
         Board board = new Board();
         board.resetBoard();
