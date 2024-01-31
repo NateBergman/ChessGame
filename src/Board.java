@@ -194,7 +194,7 @@ public class Board {
         Piece[][] movingBoard;
         if (test) {
             movingBoard = testBoard;
-        } else {
+        } else { //
             movingBoard = board;
         }
         movingBoard[to[0]][to[1]] = movingBoard[from[0]][from[1]];
