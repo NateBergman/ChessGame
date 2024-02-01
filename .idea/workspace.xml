@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="Castling works!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
-    </list>
+    <list default="true" id="0b8a3ecc-3367-440b-a136-cb3ef55cb794" name="Changes" comment="middle of redoing everything" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +128,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706470361028</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Castling works!">
+      <option name="closed" value="true" />
+      <created>1706727290845</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706727290845</updated>
+    </task>
+    <task id="LOCAL-00011" summary="middle of redoing everything">
+      <option name="closed" value="true" />
+      <created>1706727310444</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706727310444</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +168,7 @@
     <MESSAGE value="fixed problem with at position not being able to also get test board, which was problematic when looking for promotions/checks" />
     <MESSAGE value="Got wins/draws sorted out with checkmate and stalemate" />
     <MESSAGE value="Castling works!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Castling works!" />
+    <MESSAGE value="middle of redoing everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="middle of redoing everything" />
   </component>
 </project>
